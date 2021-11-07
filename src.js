@@ -25,3 +25,16 @@ class FileWC {
     a.click()
   }
 }
+
+dl = {
+  Downloader: class {
+    downloadURL(url,filename) {
+      fetch(url).then(res=>res.blob()).then(data=>{
+        let a = document.createElement("a");
+        a.href = URL.createObjectURL(data);
+        a.download = filename;
+        a.click()
+      })
+    }
+  }
+}
